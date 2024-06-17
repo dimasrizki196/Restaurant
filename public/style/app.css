@@ -1,0 +1,536 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: #06142E;
+    width: 260px;
+    padding: 20px 14px ;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    transition: width ease-in .3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+
+.sidebar.close {
+    width: 70px;
+    transition: width ease-out .3s;
+}
+
+.main-content{
+    background-color: #F5D7DB;
+    flex-grow: 1;
+}
+
+.sidebar .header{
+    position: relative;
+}
+
+/* logo title */
+.sidebar .description-header{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #F5D7DB;
+}
+
+.sidebar.close .description-header{
+    display: none;
+}
+
+.sidebar a{
+    text-decoration: none;
+}
+
+.sidebar .header .item{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 8px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.sidebar .header .item .icon{
+   transform: translateX(-4px);
+   margin-right: 16px;
+}
+
+.sidebar .header .illustration{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    transition: all ease-in .3s;
+}
+
+.sidebar.close .illustration{
+    display: none;
+    transition: all ease-out .3s;
+}
+
+/* item list */
+.sidebar .main .list-item .description{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #F5D7DB;
+}
+
+.sidebar.close .main .list-item .description{
+    display: none;
+}
+
+.sidebar .main .list-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 10px;
+    margin-top: 15px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.sidebar .main .list-item .icon{
+    margin-right: 12px;
+    font-size: 20px;
+    color: antiquewhite;
+    vertical-align: middle;
+}
+
+.sidebar .main .list-item:hover{
+    background: #F1916D;
+    transition: all ease-in .2s;
+}
+
+/* logout */
+.logout .custom-dropdown {
+    position: fixed;
+    bottom: 0;
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: #F1916D;
+    transform: translateX(-30px);
+}
+
+.sidebar.close .logout .custom-dropdown{
+    width: 70px;
+}
+
+.sidebar.close .logout .description{
+    display: none;
+}
+
+.custom-dropdown-toggle .icon{
+    margin-right: 12px;
+    font-size: 20px;
+    color: #F1916D;
+    vertical-align: middle;
+}
+
+.custom-dropdown-toggle {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #F5D7DB;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.custom-dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #F5D7DB;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 8px;
+    transform:translate(-7px, -30px);
+}
+
+.custom-dropdown-menu a {
+    display: block;
+    padding: 5px 10px;
+    font-size: smaller;
+    color: #000;
+    text-decoration: none;
+}
+
+.custom-dropdown:hover .custom-dropdown-menu {
+    display: block;
+}
+
+.sidebar .logout-button {
+    position: absolute;
+    bottom: 20px;
+    width: 94%;
+    padding: 0 24px;
+}
+
+/* nav */
+.custom-nav {
+    background-color: #1B3353;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000; /* Jangan lupa atur z-index agar navbar selalu muncul di atas */
+}
+
+/* Untuk responsif ketika sidebar ditutup */
+.sidebar.close + .main-content .custom-nav {
+    left: 70px; /* Lebar navbar saat sidebar ditutup */
+    transition: left .3s ease-out; /* Efek transisi ketika berubah lebar */
+}
+
+/* Untuk responsif ketika sidebar dibuka */
+.sidebar + .main-content .custom-nav {
+    left: 260px; /* Lebar navbar saat sidebar dibuka */
+    transition: left .3s ease-in; /* Efek transisi ketika berubah lebar */
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 25px;
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #F1916D;
+    padding: 12px;
+    display: inline-block;
+}
+
+/* toggle */
+.main-content .toggle{
+    position: absolute;
+    top: 25%;
+    transform: translateX(-12px);
+    height: 25px;
+    width: 25px;
+    background: #F1916D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: antiquewhite;
+    font-size: 22px;
+}
+
+/* content */
+/* Gaya untuk kartu (card) */
+.content{
+    margin-left: 80px;
+}
+
+/* Untuk responsif ketika sidebar ditutup */
+.sidebar.close + .main-content .content {
+    left: 80px; /* Lebar navbar saat sidebar ditutup */
+    transition: margin-left .3s ease-out; /* Efek transisi ketika berubah lebar */
+}
+
+/* Untuk responsif ketika sidebar dibuka */
+.sidebar + .main-content .content {
+    left: 270px; /* Lebar navbar saat sidebar dibuka */
+    transition: margin-left .3s ease-in; /* Efek transisi ketika berubah lebar */
+}
+
+
+.card {
+    border-radius: 8px;
+    padding: 10px;
+    margin: 70px 25px 10px; /* Pusatkan dengan jarak 20px dari tepi */
+    width: 93%; /* Atur lebar kartu */
+    background-color: #06142E;
+}
+
+.card h2{
+    color: #F5D7DB;
+}
+
+.alert{
+    background-color: #d4edda; 
+    color: #155724; 
+    border-color: #c3e6cb; 
+    padding: .75rem 1.25rem; 
+    margin-bottom: 1rem; 
+    border: 1px solid transparent; 
+    border-radius: .25rem;
+}
+
+/* Gaya untuk tabel */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 2px #F1916D;
+    background-color: #F5D7DB;
+    border-spacing: 0;
+    margin: 10px auto 10px auto;
+}
+
+.table thead tr th{
+    background-color: #F1916D;
+    border: solid 2px #F1916D;
+    color: #06142E;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.table tbody tr td{
+    border: solid 2px #F1916D;
+    color: #06142E;
+    text-align: center;
+}
+
+.table tr:hover > td{
+    background: #F1916D !important;
+    color: #F5D7DB;
+    border: solid 2px #F5D7DB;
+}
+
+/* Gaya untuk tombol */
+.btn a {
+    text-decoration: none;
+}
+
+.btn .desc{
+    color: #000;
+    font-size: 18px;
+    display: inline;
+}
+
+.btn .icon{
+    font-size: 20px;
+    color: #000;
+    transform: translateY(2px);
+}
+
+.btn {
+    margin: 10px 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 82px;
+    background-color: #F5D7DB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #F1916D;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Styles for the edit and delete buttons */
+.link-no-decoration {
+    text-decoration: none;
+}
+
+.btn-edit,
+.btn-delete {
+    margin: 10px 4px 6px; 
+    background: none;
+    border: none;
+    font-size: larger;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-edit:hover{
+    color: #e5ff00; /* Change to your desired hover color */
+    transform: scale(1.1);
+}
+
+.btn-delete:hover {
+    color: #ff0000; /* Change to your desired hover color */
+    transform: scale(1.1);
+}
+
+/* Adjust the icon size */
+.btn-edit i,
+.btn-delete i {
+    font-size: 20px;
+}
+
+/* Gaya untuk link tanpa dekorasi */
+.link-no-decoration {
+    text-decoration: none;
+    color: inherit;
+}
+
+.title-home {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.title-home h1
+.title-home h4 {
+    display: block;
+    text-align: center;
+  }
+
+/* create */
+/* Gaya untuk bagian kepala kontainer */
+.content-container {
+    padding: 70px 15px 10px;
+    display: flex;
+    width: 85%;
+    flex-direction: column;
+
+}
+
+.content-container .thead {
+    border: 1px solid #1B3353;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 10px;
+    margin-top: 15px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-sizing: border-box;
+    color: #F1916D;
+    background-color: #1B3353;
+    font-weight: bold;
+}
+
+.content-container .thead i{
+    margin: 10px;
+
+}
+
+.content-container .isi{
+    background-color: #06142E;
+    border: 3px solid #1B3353;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-sizing: border-box;
+    color: red;
+}
+
+.tbody {
+    margin: 0 20px 15px;
+}
+
+.tbody label {
+    display: block;
+    margin-bottom: 2px;
+    color: #F1916D;
+}
+
+/* Style untuk input text */
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+textarea[name="description"] {
+    resize: vertical; /* Memungkinkan pengguna untuk memperluas input vertikal */
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    height: 120px; /* Sesuaikan dengan tinggi yang diinginkan */
+}
+
+/* Style untuk pilihan pada select */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+/* Style untuk saat select di-hover */
+select:hover {
+    border-color: #555;
+}
+
+/* Style untuk saat select di-focus */
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Style untuk option pada select */
+select option {
+    padding: 8px;
+    font-size: 16px;
+}
+
+
+/* Style untuk tombol submit */
+div .tbl {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 15px;
+    border-radius: 5px;
+    background-color: #FCD7B6;
+    padding: 2px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+div .tbl:hover {
+    background-color: #F1916D;
+    transform: scale(1.05);
+}
+
+/* Style for the 'Back' link */
+.content-container .thead a {
+    text-decoration: none;
+    color: inherit;
+    margin-left: auto;
+    font-size: 14px;
+}
+
+.content-container .thead a:hover {
+    color: #cf2236;
+}

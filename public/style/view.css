@@ -1,0 +1,168 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    color: #a3bbc8; /* Warna tulisan seluruhnya */
+}
+
+body {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/img/viewb.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px); /* Mengatur efek blur pada latar belakang */
+    z-index: -1; /* Menempatkan latar belakang di belakang konten lain */
+}
+
+
+.navbar {
+    background-color: #243f4d;
+    color: #a3bbc8;
+}
+
+.navbar-brand {
+    color: #fff; 
+    font-weight: bold;
+    margin-left: 25px;
+    background-color: #243f4d;
+}
+
+/* Style untuk container navbar-collapse */
+.collapse.navbar-collapse {
+    display: flex;
+    justify-content: flex-start; /* Sesuaikan posisi dropdown di navbar */
+}
+  
+.form-select {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #243f4d;
+    font-size: 14px;
+    cursor: pointer;
+    max-width: 140px; /* Menggunakan max-width agar dropdown tidak lebih lebar dari nilai ini */
+    width: 100%; /* Memastikan dropdown selalu menyesuaikan lebar parentnya */
+}
+  
+.form-select option{
+    color: #000;
+}
+
+/* Style untuk hover pada opsi select */
+.form-select option:hover {
+    background-color: #243f4d !important;
+  }
+  
+  
+
+.slide{
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 80px;
+}
+
+.jumbotron {
+    background: transparent;
+    backdrop-filter: none;
+    margin: 26px 0 20px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.jumbotron h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #fff; 
+}
+
+
+.row-in {
+    width: 25%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 5px;/* Warna latar belakang row */
+    margin: 0 2px 10px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.up .data {
+    display: block;
+    margin-top: 10px;
+}
+
+/* Description Tooltip */
+.view {
+    position: relative;
+    left: -88px;
+    font-size: 14px;
+}
+
+.icon {
+    position: relative;
+    font-size: 20px;
+}
+
+.down span:hover::before {
+    content: attr(data-description);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    bottom: 130%;
+    left: 20%;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.down span:hover::before,
+.down span:hover::after {
+    opacity: 1;
+}
+
+.description-tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    max-width: 200px; /* Lebar maksimum tooltip */
+    display: none;
+}
+
+.down span.view.long-description:hover::before {
+    max-width: 300px; /* Sesuaikan dengan lebar yang diinginkan */
+    white-space: normal;
+    width: max-content;
+    word-wrap: break-word;
+    display: block;
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.down span.view.long-description:hover::after {
+    content: none;
+}
